@@ -26,12 +26,12 @@ class MatrizOrtogonal():
         tmpC.columna.Insertar(NodoNuevo)
         tmpF.fila.Insertar(NodoNuevo)
 
-        print("se inserto en dato:",dato," X:",x," - Y:",y)
+        #print("se inserto en dato:",dato," X:",x," - Y:",y)
 
-    def llenar(self,x,y):
-        dato=20
+    def llenar(self,x,y,Imagen):
+        siguienteLinea=0
         for i in range(y):
             for j in range(x):
-                self.Insertar(j,i,dato)
-                dato+=1
+                self.Insertar(j,i,Imagen[j+siguienteLinea])
+            siguienteLinea+=x
         

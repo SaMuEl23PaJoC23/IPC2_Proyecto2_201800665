@@ -10,70 +10,50 @@ from Clase_ListaHeadColumna import ListaHeadColumna
 
 from Clase_MatrizOrtogonal import MatrizOrtogonal
 
+from Clase_ListaHeadMatriz import ListaHeadMatriz
+from Clase_NodoHeadMatriz import NodoHeadMatriz
 
-ListaV=ListaVertical()
-ListaH=ListaHorizontal()
+class Nuevo():
 
-ListaCF=ListaHeadFilas()
-ListaCC=ListaHeadColumna()
+    def __init__(self):
+        self.ListaM=ListaHeadMatriz()
+        #sel.matriz=MatrizOrtogonal()
 
-matriz=MatrizOrtogonal()
+    def AlmacenarMatriz(self, Indice, NombreMatriz, Imagen, Px, Py):
+        self.ListaM.Insertar(Indice, NombreMatriz, Imagen, Px, Py)
 
-'''print("---lista vertical---")
-ListaV.Insertar(NodoOrtogonal(10,0,1))
-ListaV.Insertar(NodoOrtogonal(30,0,3))
-ListaV.Insertar(NodoOrtogonal(20,0,2))
-ListaV.Insertar(NodoOrtogonal(50,0,5))
-ListaV.Insertar(NodoOrtogonal(40,0,4))
-ListaV.Recorrer()
-'''
+    #recorrer despues de que ya se encuentre almacenado los datos en la matriz ortogonal
+    def MostrarMatricesG(self,PnombreMatriz, Px, Py):
 
-'''print("---lista horizontal---")
-ListaH.Insertar(NodoOrtogonal(10,1,0))
-ListaH.Insertar(NodoOrtogonal(30,3,0))
-ListaH.Insertar(NodoOrtogonal(20,2,0))
-ListaH.Insertar(NodoOrtogonal(50,5,0))
-ListaH.Insertar(NodoOrtogonal(40,4,0))
-ListaH.Recorrer()'''
+        tmp=self.ListaM.primero
+        #matriz.llenar(3,3)
 
-'''print("---lista HEAD Filas---")
-ListaCF.Insertar(NodoHeadFila(1))
-ListaCF.Insertar(NodoHeadFila(3))
-ListaCF.Insertar(NodoHeadFila(2))
-ListaCF.Insertar(NodoHeadFila(5))
-ListaCF.Insertar(NodoHeadFila(4))
-ListaCF.Recorrer()
+        bandera=False
 
-ListaCF.Buscar(10)'''
+        while bandera != True:
+                
+            if tmp.getNombreM() == PnombreMatriz: 
+                for i in range(Py):    #datoM=matriz.filas.Buscar(i).fila.primero    La matriz si inicia en 0,0
+                    datoM=tmp.NewMatriz.filas.Buscar(i).fila.primero
+                    siguiente=datoM.getDerecha()
+                    datosFilaMatriz=""
 
-'''print("---lista HEAD Columnas---")
-ListaCC.Insertar(NodoHeadColumna(1))
-ListaCC.Insertar(NodoHeadColumna(3))
-ListaCC.Insertar(NodoHeadColumna(2))
-ListaCC.Insertar(NodoHeadColumna(5))
-ListaCC.Insertar(NodoHeadColumna(4))
-ListaCC.Recorrer()
+                    for j in range(Px):
+                        if j > 0:    
+                            datoM=siguiente
+                            datosFilaMatriz+="|"+str(datoM.getDato())+"|"
+                            siguiente=siguiente.getDerecha()
+                        else:
+                            datosFilaMatriz+="|"+str(datoM.getDato())+"|"
+                        
+                    print(datosFilaMatriz)
 
-ListaCC.Buscar(12)'''
+                #tmp=tmp.siguiente para poder recorrer al siguiente, por ende a los todos
+                bandera=True
+                print("-------------------")
+                
+            else:
+                tmp=tmp.siguiente
 
-print("---MATRIZ ORTOGONAL---")
-# -X-Columnas  -Y-Filas (x,y)
-matriz.llenar(5,5)
-#matriz.RecorrerMatriz(3,3)
-
-print("buscando por filas:",matriz.filas.Buscar(2).fila.primero.getDerecha().getDerecha().getArriba().getDato())
-print("buscando por columnas:",matriz.columnas.Buscar(1).columna.primero.getAbajo().getAbajo().getDerecha().getDato())
-
-for i in range(5):
-    datoM=matriz.filas.Buscar(i).fila.primero
-    siguiente=datoM.getDerecha()
-    datosFilaMatriz=""
-    for j in range(5):
-        if j > 0:    
-            datoM=siguiente
-            datosFilaMatriz+="|"+str(datoM.getDato())+"|"
-            siguiente=siguiente.getDerecha()
-        else:
-            datosFilaMatriz+="|"+str(datoM.getDato())+"|"
-        
-    print(datosFilaMatriz)
+                """if tmp.siguiente== None:
+                break"""
