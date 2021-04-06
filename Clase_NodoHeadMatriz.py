@@ -28,7 +28,7 @@ class NodoHeadMatriz():
     def setIndice(self, indice):
         self.indice=indice
 
-    def setnombreM(self, nombreM):
+    def setNombreM(self, nombreM):  #setnombreM(self, nombreM)
         self.nombreM=nombreM
     
     def setPx(self, Px):

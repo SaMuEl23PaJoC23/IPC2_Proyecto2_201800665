@@ -17,7 +17,7 @@ class Nuevo():
 
     def __init__(self):
         self.ListaM=ListaHeadMatriz()
-        #sel.matriz=MatrizOrtogonal()
+        #self.matriz=MatrizOrtogonal()
 
     def AlmacenarMatriz(self, Indice, NombreMatriz, Imagen, Px, Py):
         self.ListaM.Insertar(Indice, NombreMatriz, Imagen, Px, Py)
@@ -29,7 +29,6 @@ class Nuevo():
         #matriz.llenar(3,3)
 
         bandera=False
-
         while bandera != True:
                 
             if tmp.getNombreM() == PnombreMatriz: 
@@ -54,6 +53,3 @@ class Nuevo():
                 
             else:
                 tmp=tmp.siguiente
-
-                """if tmp.siguiente== None:
-                break"""

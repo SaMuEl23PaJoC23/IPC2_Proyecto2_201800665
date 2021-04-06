@@ -35,3 +35,4 @@ class MatrizOrtogonal():
                 self.Insertar(j,i,Imagen[j+siguienteLinea])
             siguienteLinea+=x
         
+    
